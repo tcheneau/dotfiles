@@ -166,8 +166,13 @@ man() {
 }
 
 
-source /usr/share/autojump/autojump.zsh
-source /etc/bash_completion.d/virtualenvwrapper
+if [ -e /usr/share/autojump/autojump.zsh ]; then
+  source /usr/share/autojump/autojump.zsh
+fi
+
+if [ -e /etc/bash_completion.d/virtualenvwrapper ]; then
+  source /etc/bash_completion.d/virtualenvwrapper
+fi
 
 export GOPATH=$HOME/go
 
