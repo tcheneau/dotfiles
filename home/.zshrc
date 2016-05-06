@@ -1,0 +1,1 @@
+/home/shad/project/dotfiles/zsh/zshrc
