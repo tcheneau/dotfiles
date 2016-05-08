@@ -136,9 +136,27 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;3
 export LS_COLORS
 ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
 
-
 export BROWSER="chromium"
 export EDITOR="nvim"
+
+TERMINOLOGY=/usr/bin/terminology
+TERMINATOR=/usr/bin/terminator
+if [ -f $TERMINOLOGY ]; then
+    export TERMINAL=$TERMINOLOGY
+elif [ -f "$TERMINATOR" ]; then
+    export TERMINAL=$TERMINATOR
+else
+    export TERMINAL=xterm
+fi
+
+XSCREENSAVER=/usr/bin/xscreensaver-command
+I3LOCK=/usr/bin/i3lock
+if [ -f $XSCREENSAVER ]; then
+    export SCREENLOCK="$XSCREENSAVER -lock"
+elif [ -f $I3LOCK ]; then
+    export SCREENLOCK=$I3LOCK
+fi
+
 export TERM="xterm-256color"
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/home/shad/.local/bin:/sbin:/home/shad/sources/depot_tools
 export DEBEMAIL="Tony Cheneau <tony.cheneau@amnesiak.org>"
