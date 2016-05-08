@@ -11,9 +11,6 @@ local beautiful = require("beautiful")
 local naughty = require("naughty")
 local menubar = require("menubar")
 
--- Load Debian menu entries
-require("debian.menu")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -41,14 +38,14 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
+beautiful.init(awful.util.getdir("config") .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "terminology"
+terminal = os.getenv("TERMINAL") or "xterm"
 --terminal = "xterm -bg black -fg white -sl 2048"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
-locking_program = "xscreensaver-command -lock"
+locking_program = os.gentenv("SCREENLOCK") or "xscreensaver-command -lock"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -106,7 +103,6 @@ myawesomemenu = {
 }
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "Debian", debian.menu.Debian_menu.Debian },
                                     { "open terminal", terminal }
                                   }
                         })
@@ -256,7 +252,6 @@ globalkeys = awful.util.table.join(
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
-    awful.key({}, "XF86Calculator", function () awful.util.spawn(terminal .. " -e /bin/bash -l -c ipython") end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
@@ -390,12 +385,6 @@ awful.rules.rules = {
       properties = { tag = tags[1][9], switchtotag = true } },
     { rule = { class = "Gkrellm" },
       properties = { tag = tags[1][6] } },
-    { rule = { class = "Sunbird-bin" },
-      properties = { tag = tags[1][3] } },
-    { rule = { class = "Liferea" },
-      properties = { tag = tags[1][4] } },
-    { rule = { class = "Xpdf" },
-      properties = { tag = tags[1][8] } },
 }
 -- }}}
 
