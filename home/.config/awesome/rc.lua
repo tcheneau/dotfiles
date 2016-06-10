@@ -45,7 +45,7 @@ terminal = os.getenv("TERMINAL") or "xterm"
 --terminal = "xterm -bg black -fg white -sl 2048"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
-locking_program = os.gentenv("SCREENLOCK") or "xscreensaver-command -lock"
+locking_program = os.getenv("SCREENLOCK") or "xscreensaver-command -lock"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
