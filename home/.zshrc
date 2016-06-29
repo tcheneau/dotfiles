@@ -82,6 +82,8 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 # }}}
 
 # Customize to my needs
+zstyle ':completion:*' completer _complete _match _approximate
+zstyle ':completion:*:approximate:*' max-errors 3 numeric
 autoload -Uz compinit
 compinit
 setopt HIST_IGNORE_DUPS
