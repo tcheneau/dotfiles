@@ -196,3 +196,4 @@ fi
 
 export GOPATH=$HOME/go
 
+[ -e /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
