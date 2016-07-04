@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	terminator
+	terminology
 
 # program launcher
 super + space
@@ -87,6 +87,8 @@ super + {o,i}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
 
+super + {_,shift + }{quotedbl,guillemotleft,guillemotright,parenleft,parenright,at,plus,minus,slash,asterisk}
+	bspc {desktop -f,node -d} '^{1-9,10}'
 #
 # preselect
 #
