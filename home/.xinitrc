@@ -4,7 +4,7 @@ setxkbmap us altgr-intl
 parcellite&
 xbindkeys&
 xscreensaver&
-xautolock -time 7 -locker "xscreensaver-command --lock"&
+xautolock -time 7 -detectsleep -locker "xscreensaver-command --lock"&
 syncthing&
 feh --bg-max ~/snapshot/phraxismoon2HDfree.jpg
 bash ~/.config/barmk.sh | lemonbar -b &
