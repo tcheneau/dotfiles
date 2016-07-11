@@ -89,6 +89,7 @@ compinit
 setopt HIST_IGNORE_DUPS
 setopt extended_glob
 setopt AUTO_CD
+setopt histignorespace
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
