@@ -196,5 +196,6 @@ if [ -e /etc/bash_completion.d/virtualenvwrapper ]; then
 fi
 
 export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
 
 [ -e /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
