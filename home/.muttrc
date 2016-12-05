@@ -1,0 +1,93 @@
+# IMAP: offlineimap
+set folder = "~/Maildir"
+source ~/.mutt/mailboxes
+set spoolfile = "+INBOX"
+set record = "+Sent\ Items"
+set postponed = "+Drafts"
+set header_cache = "~/.cache/mutt/hcache"
+set mailcap_path  = ~/.mutt/mailcap
+set index_format="%4C %Z %{%g %b %d} %-16.16L  %s"
+set sort="threads"
+set strict_threads="yes"
+
+set sort_browser="reverse-date"
+set sort_aux="last-date-received"
+unset collapse_unread
+
+
+set editor = nvim
+set from = "tony.cheneau@amnesiak.org"
+alternates "(tony@cheneau\.us)|(shad@amnesiak\.org)"
+set reverse_name
+
+set realname = "Tony Cheneau"
+set use_from = yes
+set my_user = "tony@cheneau.us"
+
+alias identity_1 Tony Cheneau	<tony.cheneau@amnesiak.org>
+alias identity_2 Tony Cheneau	<tony@cheneau.us>
+macro compose v "<edit-from>^Uidentity_<tab>" "Select from"
+
+# header weeding
+ignore *
+unignore from date subject to cc
+unignore organization organisation x-mailer: x-newsreader: x-mailing-list:
+unignore posted-to:
+
+
+# set smtp_url=smtp://$my_user@mail.infomaniak.com:587
+#set ssl_starttls = yes
+
+auto_view text/html
+alternative_order text/plain text/html
+
+source ~/.mutt/theme
+
+bind pager g top
+bind pager G bottom
+bind index { first-entry
+bind index } last-entry
+
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && chromium-browser ~/.cache/mutt/mail.html<enter>"
+#macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && chromium-browser ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+
+# abook - START
+set query_command = "abook --mutt-query '%s'"
+macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
+macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
+# abook - END
+
+# sidebar plugin configuration - START
+# set up the sidebar, default not visible
+set sidebar_width=40
+set sidebar_visible=no
+set sidebar_delim='|'
+set sidebar_sort=yes
+
+# which mailboxes to list in the sidebar
+#mailboxes =inbox =ml
+
+# color of folders with new mail
+color sidebar_new yellow default
+
+# ctrl-n, ctrl-p to select next, prev folder
+# ctrl-o to open selected folder
+bind index <S-UP> sidebar-prev
+bind index <S-DOWN> sidebar-next
+bind index <S-RIGHT> sidebar-open
+bind pager <S-UP> sidebar-prev
+bind pager <S-DOWN> sidebar-next
+bind pager <S-RIGHT> sidebar-open
+
+# I don’t need these. just for documentation purposes. See below.
+# sidebar-scroll-up
+# sidebar-scroll-down
+
+# b toggles sidebar visibility
+macro index b '<enter-command>toggle sidebar_visible<enter>'
+macro pager b '<enter-command>toggle sidebar_visible<enter>'
+
+# Remap bounce-message function to “B”
+bind index B bounce-message
+
+# sidebar plugin configuration - END
