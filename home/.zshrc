@@ -161,7 +161,6 @@ elif [ -f $I3LOCK ]; then
 fi
 
 export TERM="xterm-256color"
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/home/shad/.local/bin:/sbin:/home/shad/sources/depot_tools
 export DEBEMAIL="Tony Cheneau <tony.cheneau@amnesiak.org>"
 export DEBFULLNAME="Tony Cheneau"
 
@@ -197,5 +196,6 @@ fi
 
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
+export PATH=$PATH:$GOBIN
 
 [ -e /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
