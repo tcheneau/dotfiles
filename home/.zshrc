@@ -170,6 +170,8 @@ alias dac="cp ~/.asoundrc.dac ~/.asoundrc"
 alias nodac="cp ~/.asoundrc.nodac ~/.asoundrc"
 alias logitech="cp ~/.asoundrc.logitech ~/.asoundrc"
 alias nv=nvim
+alias mb="mbsync -V amnesiak-inbox"
+alias ec="emacsclient --alternate-editor '' -n"
 
 # my functions
 # -- coloured manuals
