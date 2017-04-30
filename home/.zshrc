@@ -196,8 +196,7 @@ if [ -e /etc/bash_completion.d/virtualenvwrapper ]; then
   source /etc/bash_completion.d/virtualenvwrapper
 fi
 
-export GOPATH=$HOME/go
-export GOBIN=$HOME/go/bin
-export PATH=$PATH:$GOBIN
+export LIBVIRT_DEFAULT_URI=qemu:///system
+export CHROMIUM_FLAGS='--enable-remote-extensions'
 
 [ -e /usr/bin/virtualenvwrapper_lazy.sh ] && source /usr/bin/virtualenvwrapper_lazy.sh
