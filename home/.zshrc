@@ -161,7 +161,6 @@ elif [ -f $I3LOCK ]; then
 fi
 
 export TERM="xterm-256color"
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/sbin:/home/shad/.local/bin:/sbin:/home/shad/sources/depot_tools
 export DEBEMAIL="Tony Cheneau <tony.cheneau@amnesiak.org>"
 export DEBFULLNAME="Tony Cheneau"
 
@@ -195,7 +194,6 @@ if [ -e /etc/bash_completion.d/virtualenvwrapper ]; then
   source /etc/bash_completion.d/virtualenvwrapper
 fi
 
-export GOPATH=$HOME/go
 export LIBVIRT_DEFAULT_URI=qemu:///system
 export CHROMIUM_FLAGS='--enable-remote-extensions'
 
