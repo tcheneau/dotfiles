@@ -163,6 +163,7 @@ fi
 export TERM="xterm-256color"
 export DEBEMAIL="Tony Cheneau <tony.cheneau@amnesiak.org>"
 export DEBFULLNAME="Tony Cheneau"
+export GOPATH="$HOME/go"
 
 # my aliases
 alias vimtab="gvim --remote-tab"
