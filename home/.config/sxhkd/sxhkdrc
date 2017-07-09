@@ -4,7 +4,8 @@
 
 # terminal emulator
 super + Return
-	terminology
+	termite
+
 
 # program launcher
 super + space
